@@ -75,7 +75,7 @@ $("#seed").change(function(){
 });
 
 $("#newNumber").click(function(){
-   generateRounds();
+   generateRounds(1);
 });
 
 $("#newSorteio").click(function(){
@@ -89,20 +89,20 @@ $("#newSorteio").click(function(){
     document.location.search = '';
 });
 
-$("#share").click(function(){
-    whatsURL = "https://wa.me/?text=";
+// $("#share").click(function(){
+//     whatsURL = "https://wa.me/?text=";
 
-    var uri = window.location.href + "?rounds=" + sorteio.length + 
-                                     "&campain=" + $("#campain").val() +
-                                     "&ini=" + $("#initialNumber").val() +
-                                     "&end=" + $("#endNumber").val() +
-                                     "&seed=" + $("#seed").val();
+//     var uri = window.location.href + "?rounds=" + sorteio.length + 
+//                                      "&campain=" + $("#campain").val() +
+//                                      "&ini=" + $("#initialNumber").val() +
+//                                      "&end=" + $("#endNumber").val() +
+//                                      "&seed=" + $("#seed").val();
 
-    var encoded = encodeURI(uri)
-    // $(this).attr("href",whatsURL+encoded);
-    console.log(whatsURL+encoded);
+//     var encoded = encodeURI(uri)
+//     // $(this).attr("href",whatsURL+encoded);
+//     console.log(whatsURL+encoded);
     
-});
+// });
 
 function generateRounds(r){
     for (var i = 0; i < r; i++) {
