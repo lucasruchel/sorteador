@@ -1,0 +1,10 @@
+.number {
+    background-color: #e30425;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+.badge-custom{
+    margin-right: 20px;
+}
