@@ -32,13 +32,14 @@ class Sorteio {
         var max = Math.floor(this.endNumber);
 
         var size = this.endNumber - this.initialNumber;
+        var n = 0;
 
         if ((size+1) == this.listOfSorted.length)
-            return;
+            return -1;
 
         do{
-            var n = Math.floor(this.generator() * (max - min + 1)) + min;
-        } while(this.listOfSorted.includes(n) && (this.listOfSorted.length < size));
+            n = Math.floor(this.generator() * (max - min + 1)) + min;
+        } while(this.listOfSorted.includes(n) && (this.listOfSorted.length <= size));
         
         this.listOfSorted.push(n);
         
@@ -118,17 +119,21 @@ function generateRounds(r){
         sorteio.setRange(firstNumber,endNumber);
         n = sorteio.sortearNumero();
 
-        var p = document.createElement("p");
-        var ordem = document.createElement("spam");
-        p.classList = "number text-center";
-        ordem.classList = "badge badge-light badge-custom";
-        ordem.innerText = sorteio.listOfSorted.length+"º ";
+        if (n != -1){
+            var p = document.createElement("p");
+            var ordem = document.createElement("spam");
+            p.classList = "number text-center";
+            ordem.classList = "badge badge-light badge-custom";
+            ordem.innerText = sorteio.listOfSorted.length+"º ";
+            
+            p.append(ordem);
+            p.append("Número: "+n);
+
+            $("#nrosSorteados").append(p);
+        } else {
+            alert("Todos os números foram sorteados!!");
+        }
         
-        p.append(ordem);
-        p.append("Número: "+n);
-
-        $("#nrosSorteados").append(p);
-
     }
 }
 
